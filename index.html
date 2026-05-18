@@ -11,10 +11,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#080c10;--surface:#0d1117;--card:#111820;--border:#1e2d3d;
-  --cyan:#22d3ee;--teal:#2dd4bf;--text:#e6edf3;--muted:#8b949e;--dim:#3d4f5e;
+  --cyan:#3322ee;--teal:#2dd4c9;--text:#e6edf3;--muted:#ff00dd;--dim:#3d4f5e;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:'Dancing Script',;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
@@ -100,7 +100,7 @@ h2.sh{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,46px);font-weight:7
 .t-dots{display:flex;gap:5px;margin-bottom:11px}
 .td{width:9px;height:9px;border-radius:50%}
 .td1{background:rgba(239,68,68,.55)}.td2{background:rgba(234,179,8,.55)}.td3{background:rgba(34,197,94,.55)}
-.t-dim{color:var(--dim)}.t-green{color:#4ade80;margin-top:3px}.t-c{color:var(--cyan);margin-top:3px}
+.t-dim{color:var(--dim)}.t-green{color:#66c187;margin-top:3px}.t-c{color:var(--cyan);margin-top:3px}
 
 /* ── PROJECTS ── */
 .proj-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:28px;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s;cursor:default}
@@ -242,7 +242,6 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
       <div class="badge"><span class="badge-dot"></span>OPEN TO OPPORTUNITIES · BENGALURU, INDIA</div>
       <h1 class="name">Lakshitha<br><span class="gt">Loganathan</span></h1>
       <div class="tw-wrap"><span class="tw-prompt">&gt; </span><span id="tw"></span><span class="tw-cursor"></span></div>
-      <p class="tagline">I engineer intelligence from data — building ML pipelines that decode language, and turn raw signals into decisions that matter.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="scrollTo('projects')">VIEW MY WORK &nbsp;→</button>
         <button class="btn-ghost" onclick="scrollTo('contact')">GET IN TOUCH</button>
@@ -259,7 +258,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
 <!-- ABOUT -->
 <section id="about">
   <div class="sec-max">
-    <div class="sec-label reveal"><span>01 // ABOUT</span><div class="label-line"></div></div>
+    <div class="sec-label reveal"><span>01  ABOUT</span><div class="label-line"></div></div>
     <h2 class="sh reveal">Building models that <span class="gt">earn trust</span></h2>
     <div class="about-grid">
       <div class="about-text reveal">
@@ -301,7 +300,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
 <!-- PROJECTS -->
 <section id="projects" class="alt">
   <div class="sec-max">
-    <div class="sec-label reveal"><span>02 // FEATURED WORK</span><div class="label-line"></div></div>
+    <div class="sec-label reveal"><span>02  FEATURED WORK</span><div class="label-line"></div></div>
     <h2 class="sh reveal">Built to <span class="gt">measure and improve</span></h2>
     <p class="sec-sub reveal">Real pipelines, real data, real evaluation. Not tutorials — systems engineered for performance under pressure.</p>
     <div class="proj-card reveal">
@@ -329,7 +328,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="sec-max">
-    <div class="sec-label reveal"><span>03 // EXPERIENCE</span><div class="label-line"></div></div>
+    <div class="sec-label reveal"><span>03  EXPERIENCE</span><div class="label-line"></div></div>
     <h2 class="sh reveal">Where I've <span class="gt">shipped things</span></h2>
 
     <div class="tabs reveal">
@@ -487,7 +486,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
 <!-- SKILLS -->
 <section id="skills" class="alt">
   <div class="sec-max">
-    <div class="sec-label reveal"><span>04 // SKILLS</span><div class="label-line"></div></div>
+    <div class="sec-label reveal"><span>04  SKILLS</span><div class="label-line"></div></div>
     <h2 class="sh reveal">The <span class="gt">technical stack</span></h2>
     <p class="sec-sub reveal">Tools and techniques I use to build, evaluate, and deploy machine learning systems.</p>
 
@@ -543,7 +542,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
 <!-- CONTACT -->
 <section id="contact">
   <div class="sec-max">
-    <div class="sec-label reveal"><span>05 // CONTACT</span><div class="label-line"></div></div>
+    <div class="sec-label reveal"><span>05  CONTACT</span><div class="label-line"></div></div>
     <h2 class="sh reveal">Let's build something <span class="gt">intelligent</span></h2>
     <p class="sec-sub reveal">Actively seeking ML/AI engineering roles, research collaborations, and internship opportunities. Whether you have a model to train or a pipeline to build — let's talk.</p>
 
@@ -597,7 +596,7 @@ function scrollTo(id){
 }
 
 /* ── TYPEWRITER ── */
-var roles = ['AI/ML Engineer','Model Builder','Pipeline Architect','NLP Enthusiast'];
+var roles = ['AI/ML Engineer','Model Builder','NLP Enthusiast','Hackathon Competitor'];
 var ri = 0, tw = '', del = false;
 var twEl = document.getElementById('tw');
 function typeStep(){
