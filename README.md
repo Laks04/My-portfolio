@@ -7,7 +7,7 @@
 **AI/ML Engineer · Bengaluru, India**
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-Open%20Portfolio-cccccc?style=for-the-badge&logo=googlechrome&logoColor=000)](https://laks04.github.io/My-portfolio/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lakshithaloganathan)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lakshitha-loganathan/)
 [![Email](https://img.shields.io/badge/Email-Hire%20Me-333333?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lakshithaloganathan4@gmail.com)
 
 </div>
