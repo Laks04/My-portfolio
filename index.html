@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Lakshitha Loganathan — AI/ML Engineer</title>
 
-<!-- Fonts: Playball (name) + Crimson Text (body) + JetBrains Mono (code/labels) -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playball&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
@@ -26,9 +25,6 @@
 -->
 
 <style>
-/* ═══════════════════════════════════════════
-   DESIGN TOKENS  (replaces tailwind.config)
-════════════════════════════════════════════ */
 :root {
   --black:   #000000;
   --dark:    #111111;
@@ -40,17 +36,11 @@
   --pale:    #cccccc;
   --white:   #f0f0f0;
   --accent:  #cccccc;
-
-  /* typography */
   --font-name: 'Playball', cursive;
   --font-body: 'Crimson Text', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
-
-  /* spacing */
   --section-pad: 100px 48px;
   --max-w: 1120px;
-
-  /* motion durations (Framer Motion equiv.) */
   --dur-fast:   0.25s;
   --dur-med:    0.55s;
   --dur-slow:   0.85s;
@@ -58,9 +48,6 @@
   --ease-spring:cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ═══════════════════════════════════════════
-   RESET + BASE
-════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 18px; }
 body {
@@ -79,9 +66,6 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--dark2); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--light); }
 
-/* ═══════════════════════════════════════════
-   TYPOGRAPHY SCALE
-════════════════════════════════════════════ */
 .t-hero  { font-size: clamp(48px, 7vw, 88px); line-height: 1.0; }
 .t-xl    { font-size: clamp(32px, 4vw, 52px); line-height: 1.1; }
 .t-lg    { font-size: clamp(22px, 2.5vw, 30px); line-height: 1.3; }
@@ -92,24 +76,16 @@ body {
 .mono    { font-family: var(--font-mono); font-style: normal; }
 .name-font { font-family: var(--font-name); font-style: normal; font-weight: 400; }
 
-/* ═══════════════════════════════════════════
-   FRAMER MOTION — ANIMATION SYSTEM
-   Mirrors: initial / animate / whileInView / transition
-════════════════════════════════════════════ */
-
-/* initial state (Framer: initial={{ opacity:0, y:30 }}) */
 [data-motion] {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity var(--dur-slow) var(--ease-out),
               transform var(--dur-slow) var(--ease-out);
 }
-/* animate state (Framer: animate={{ opacity:1, y:0 }}) */
 [data-motion].in {
   opacity: 1;
   transform: translateY(0);
 }
-/* stagger children (Framer: staggerChildren) */
 [data-motion="stagger-1"] { transition-delay: 0.10s; }
 [data-motion="stagger-2"] { transition-delay: 0.20s; }
 [data-motion="stagger-3"] { transition-delay: 0.30s; }
@@ -117,7 +93,6 @@ body {
 [data-motion="stagger-5"] { transition-delay: 0.50s; }
 [data-motion="stagger-6"] { transition-delay: 0.60s; }
 
-/* whileHover scale (Framer: whileHover={{ scale:1.02 }}) */
 .hover-lift {
   transition: transform var(--dur-fast) var(--ease-spring),
               border-color var(--dur-fast) ease,
@@ -129,7 +104,6 @@ body {
   box-shadow: 0 12px 40px rgba(255,255,255,0.04);
 }
 
-/* Framer layoutTransition for tab panels */
 .tab-panel {
   display: none;
   animation: panelIn var(--dur-med) var(--ease-out) both;
@@ -140,9 +114,6 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ═══════════════════════════════════════════
-   LAYOUT UTILITIES (Tailwind equiv.)
-════════════════════════════════════════════ */
 .container { max-width: var(--max-w); margin: 0 auto; }
 .flex       { display: flex; }
 .flex-col   { flex-direction: column; }
@@ -159,9 +130,6 @@ body {
 .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
 
-/* ═══════════════════════════════════════════
-   CARD COMPONENT
-════════════════════════════════════════════ */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -180,9 +148,6 @@ body {
 }
 .card:hover::before { opacity: 1; }
 
-/* ═══════════════════════════════════════════
-   BADGE / PILL COMPONENT
-════════════════════════════════════════════ */
 .pill {
   display: inline-flex;
   align-items: center;
@@ -207,9 +172,6 @@ body {
   0%,100% { opacity:1; } 50% { opacity:0.25; }
 }
 
-/* ═══════════════════════════════════════════
-   SECTION LABEL
-════════════════════════════════════════════ */
 .sec-label {
   display: flex;
   align-items: center;
@@ -230,9 +192,6 @@ body {
   background: var(--border);
 }
 
-/* ═══════════════════════════════════════════
-   GRADIENT TEXT (greyscale shimmer)
-════════════════════════════════════════════ */
 .gt {
   background: linear-gradient(135deg, #fff 0%, #999 50%, #fff 100%);
   background-size: 200% auto;
@@ -246,9 +205,6 @@ body {
   100% { background-position: 200% center; }
 }
 
-/* ═══════════════════════════════════════════
-   BUTTON COMPONENTS
-════════════════════════════════════════════ */
 .btn {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -285,9 +241,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* ═══════════════════════════════════════════
-   NAV — Next.js App Router sticky layout
-════════════════════════════════════════════ */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -319,7 +272,6 @@ nav.scrolled {
 }
 .nav-logo:hover { opacity: 0.8; }
 
-/* Desktop links */
 .nav-links {
   display: flex;
   align-items: center;
@@ -372,7 +324,6 @@ nav.scrolled {
   background: rgba(255,255,255,0.06);
 }
 
-/* Scroll progress bar */
 .nav-progress {
   position: absolute;
   bottom: 0; left: 0;
@@ -384,7 +335,6 @@ nav.scrolled {
   transition: width 0.08s linear;
 }
 
-/* Hamburger — mobile only */
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -414,7 +364,6 @@ nav.scrolled {
 .nav-hamburger.open .ham-bar:nth-child(2) { opacity: 0; width: 0; }
 .nav-hamburger.open .ham-bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-/* Mobile slide-down drawer */
 .nav-drawer {
   position: fixed;
   top: 68px; left: 0; right: 0;
@@ -481,9 +430,6 @@ nav.scrolled {
 }
 .drawer-cta:hover { background: var(--white); transform: scale(1.01); }
 
-/* ═══════════════════════════════════════════
-   HERO SECTION
-════════════════════════════════════════════ */
 #hero {
   position: relative;
   min-height: 100vh;
@@ -612,9 +558,6 @@ nav.scrolled {
   background: linear-gradient(to bottom, var(--dark2), transparent);
 }
 
-/* ═══════════════════════════════════════════
-   SECTION BASE
-════════════════════════════════════════════ */
 section { padding: var(--section-pad); }
 .alt-bg { background: rgba(10,10,10,0.9); }
 h2.section-title {
@@ -624,9 +567,6 @@ h2.section-title {
   color: var(--white);
 }
 
-/* ═══════════════════════════════════════════
-   ABOUT
-════════════════════════════════════════════ */
 .about-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -703,9 +643,7 @@ h2.section-title {
 .t-green { color: #6ee7b7; display:block; margin-top:4px; }
 .t-hi    { color: var(--pale); display:block; margin-top:4px; }
 
-/* ═══════════════════════════════════════════
-   PROJECTS
-════════════════════════════════════════════ */
+/* ── PROJECT CARDS (updated with LinkedIn-style link) ── */
 .project-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -714,7 +652,9 @@ h2.section-title {
   position: relative;
   overflow: hidden;
   transition: border-color var(--dur-fast), box-shadow var(--dur-fast), transform var(--dur-fast);
+  margin-bottom: 24px;
 }
+.project-card:last-child { margin-bottom: 0; }
 .project-card:hover {
   border-color: rgba(204,204,204,0.25);
   box-shadow: 0 16px 56px rgba(0,0,0,0.5);
@@ -729,6 +669,14 @@ h2.section-title {
   transition: opacity 0.3s;
 }
 .project-card:hover::after { opacity:1; }
+.proj-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
 .proj-id {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -743,10 +691,38 @@ h2.section-title {
   font-weight: 600;
   font-size: clamp(22px, 2.5vw, 28px);
   color: var(--white);
-  margin-bottom: 6px;
+  margin-bottom: 0;
   transition: color var(--dur-fast);
 }
 .project-card:hover .proj-title { color: var(--pale); }
+.proj-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  color: var(--mid);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  padding: 7px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast), transform var(--dur-fast);
+}
+.proj-github-link:hover {
+  color: var(--white);
+  border-color: var(--mid);
+  background: rgba(255,255,255,0.07);
+  transform: translateY(-1px);
+}
+.proj-github-link svg {
+  width: 13px; height: 13px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
 .proj-sub {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -767,7 +743,7 @@ h2.section-title {
   grid-template-columns: repeat(3,1fr);
   gap: 10px;
   margin-bottom: 22px;
-  max-width: 380px;
+  max-width: 420px;
 }
 .metric-box {
   background: rgba(255,255,255,0.03);
@@ -805,9 +781,23 @@ h2.section-title {
 }
 .s-tag:hover { color: var(--pale); border-color: var(--mid); }
 
-/* ═══════════════════════════════════════════
-   EXPERIENCE  (tabs: Work / Hackathons / Education / Certifications)
-════════════════════════════════════════════ */
+/* Hackathon result badge inside project card */
+.proj-result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  color: var(--pale);
+  border: 1px solid rgba(204,204,204,0.25);
+  background: rgba(204,204,204,0.05);
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
 .tabs-wrap {
   display: flex;
   gap: 8px;
@@ -836,7 +826,6 @@ h2.section-title {
   border-bottom-color: var(--pale);
 }
 
-/* Timeline (Work) */
 .timeline { position: relative; padding-left: 0; }
 .tl-wrapper {
   display: grid;
@@ -917,7 +906,6 @@ h2.section-title {
 }
 .bullet-arr { color: var(--dark2); flex-shrink: 0; margin-top: 3px; }
 
-/* Hackathons */
 .hack-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -933,7 +921,7 @@ h2.section-title {
 .hack-card:hover { border-color: rgba(204,204,204,0.2); transform: translateY(-3px); }
 .hack-result {
   font-family: var(--font-name);
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   color: var(--white);
   margin-bottom: 8px;
@@ -962,7 +950,20 @@ h2.section-title {
   border-radius: 3px;
 }
 
-/* Education */
+/* Winner badge on hack card */
+.hack-winner-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-style: normal;
+  color: var(--pale);
+  border: 1px solid rgba(204,204,204,0.3);
+  background: rgba(204,204,204,0.06);
+  padding: 3px 9px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
 .edu-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -1006,7 +1007,6 @@ h2.section-title {
   color: var(--dark2);
 }
 
-/* Certifications */
 .cert-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1038,9 +1038,6 @@ h2.section-title {
   color: var(--mid);
 }
 
-/* ═══════════════════════════════════════════
-   SKILLS
-════════════════════════════════════════════ */
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1134,9 +1131,6 @@ h2.section-title {
   color: var(--mid);
 }
 
-/* ═══════════════════════════════════════════
-   CONTACT
-════════════════════════════════════════════ */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1217,9 +1211,6 @@ h2.section-title {
   margin-left: auto;
 }
 
-/* ═══════════════════════════════════════════
-   FOOTER
-════════════════════════════════════════════ */
 footer {
   border-top: 1px solid var(--border);
   padding: 30px 48px;
@@ -1237,9 +1228,6 @@ footer p {
   letter-spacing: 0.06em;
 }
 
-/* ═══════════════════════════════════════════
-   RESPONSIVE BREAKPOINTS
-════════════════════════════════════════════ */
 @media (max-width: 900px) {
   :root { --section-pad: 72px 28px; }
   nav { padding: 0 22px; }
@@ -1261,19 +1249,14 @@ footer p {
   .hack-grid { grid-template-columns: 1fr; }
   .edu-card { flex-direction: column; }
   .edu-right { text-align: left; }
+  .proj-header { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     NAV COMPONENT  [Next.js: /components/Navbar.tsx]
-══════════════════════════════════════════ -->
 <nav id="nav">
-  <!-- Logo -->
   <div class="nav-logo" onclick="gotoSection('hero')">Lakshitha Loganathan</div>
-
-  <!-- Desktop nav links -->
   <div class="nav-links" id="nav-links">
     <button class="nav-link active" data-section="hero"       onclick="gotoSection('hero')">HOME</button>
     <button class="nav-link"        data-section="about"      onclick="gotoSection('about')">ABOUT</button>
@@ -1283,19 +1266,14 @@ footer p {
     <button class="nav-link"        data-section="contact"    onclick="gotoSection('contact')">CONTACT</button>
     <button class="nav-cta"                                   onclick="gotoSection('contact')">HIRE ME</button>
   </div>
-
-  <!-- Mobile hamburger -->
   <button class="nav-hamburger" id="hamburger" onclick="toggleDrawer()" aria-label="Toggle menu">
     <div class="ham-bar"></div>
     <div class="ham-bar"></div>
     <div class="ham-bar"></div>
   </button>
-
-  <!-- Scroll progress bar -->
   <div class="nav-progress" id="nav-progress"></div>
 </nav>
 
-<!-- Mobile drawer -->
 <div class="nav-drawer" id="nav-drawer">
   <button class="drawer-link active" data-section="hero"       onclick="drawerGoto('hero')"><span class="drawer-link-num">01</span>HOME</button>
   <button class="drawer-link"        data-section="about"      onclick="drawerGoto('about')"><span class="drawer-link-num">02</span>ABOUT</button>
@@ -1306,85 +1284,65 @@ footer p {
   <button class="drawer-cta"                                   onclick="drawerGoto('contact')">HIRE ME →</button>
 </div>
 
-<!-- ══════════════════════════════════════
-     HERO COMPONENT  [/components/Hero.tsx]
-══════════════════════════════════════════ -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-grid"></div>
   <div class="hero-vignette"></div>
   <canvas id="hero-canvas"></canvas>
-
   <div class="hero-content">
     <div style="max-width:700px">
-
-      <!-- Status badge — Framer: initial={{ opacity:0, y:-10 }} -->
       <div class="pill" data-motion style="margin-bottom:28px; display:inline-flex;">
         <span class="pill-dot"></span>
         OPEN TO OPPORTUNITIES · BENGALURU, INDIA
       </div>
-
-      <!-- Name — Playball font -->
       <div class="hero-name" data-motion="stagger-1">
         Lakshitha<br>
         <span class="gt">Loganathan</span>
       </div>
-
-      <!-- Tagline -->
       <div class="hero-tagline-big" data-motion="stagger-2">Build. Learn. Repeat.</div>
-
-      <!-- Typewriter role -->
       <div class="hero-typewriter" data-motion="stagger-3">
         <span style="color:var(--dark2)">&gt; </span><span id="tw-text"></span><span class="tw-cursor"></span>
       </div>
-
-      <!-- Descriptor -->
       <p class="hero-desc" data-motion="stagger-3">
         I'm a Computer Engineering student specializing in AI/ML, with a passion for building end-to-end systems.
       </p>
-
-      <!-- CTAs -->
       <div class="flex gap-4 flex-wrap" data-motion="stagger-4" style="margin-bottom:36px">
         <button class="btn btn-primary" onclick="gotoSection('projects')">VIEW MY WORK &nbsp;→</button>
         <button class="btn btn-outline" onclick="gotoSection('contact')">GET IN TOUCH</button>
       </div>
-
-      <!-- Stats -->
       <div class="hero-stats" data-motion="stagger-5">
         <div>
           <div class="stat-val">8.8</div>
           <div class="stat-lbl">GPA / 10.0</div>
         </div>
         <div>
-          <div class="stat-val">4+</div>
+          <div class="stat-val">6+</div>
           <div class="stat-lbl">HACKATHONS</div>
+        </div>
+        <div>
+          <div class="stat-val">2nd</div>
+          <div class="stat-lbl">HACK DAYS 2026</div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="scroll-hint">
     <span>SCROLL</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     ABOUT COMPONENT  [/components/About.tsx]
-══════════════════════════════════════════ -->
+<!-- ABOUT -->
 <section id="about" class="alt-bg">
   <div class="container">
-
     <div class="sec-label" data-motion>
       <span class="sec-label-text">01  ABOUT</span>
       <div class="sec-label-line"></div>
     </div>
-
     <h2 class="section-title t-xl" data-motion style="margin-bottom:36px">
       Exploring AI Beyond <span class="gt">Accuracy</span>
     </h2>
-
     <div class="about-grid">
-      <!-- Left: Text -->
       <div class="about-text">
         <p data-motion>
           Final-year Computer Engineering student at EPCET Bengaluru, specializing in
@@ -1393,7 +1351,7 @@ footer p {
         <p data-motion="stagger-2">
           I work at the intersection of AI, machine learning, and scalable software engineering — 
           transforming complex data into systems that are practical, resilient, and built for real-world impact. 
-          My focus goes beyond training accurate models; I’m driven by designing intelligent solutions 
+          My focus goes beyond training accurate models; I'm driven by designing intelligent solutions 
           that remain reliable under uncertainty, adapt to imperfect data, and perform consistently in production environments.
         </p>
         <p data-motion="stagger-3">
@@ -1415,8 +1373,6 @@ footer p {
           <span class="tech-tag">Git</span>
         </div>
       </div>
-
-      <!-- Right: Trait cards + Terminal -->
       <div>
         <div class="trait-card" data-motion>
           <span class="trait-icon">⬡</span>
@@ -1456,17 +1412,13 @@ footer p {
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     PROJECTS COMPONENT  [/components/Projects.tsx]
-══════════════════════════════════════════ -->
+<!-- PROJECTS -->
 <section id="projects">
   <div class="container">
-
     <div class="sec-label" data-motion>
       <span class="sec-label-text">02  FEATURED WORK</span>
       <div class="sec-label-line"></div>
     </div>
-
     <h2 class="section-title t-xl" data-motion style="margin-bottom:12px">
       Built to <span class="gt">measure and improve</span>
     </h2>
@@ -1474,9 +1426,108 @@ footer p {
       Real pipelines, real data, real evaluation. Not tutorials — systems engineered to perform under pressure.
     </p>
 
-    <!-- Project Card -->
+    <!-- Project 1: ZeroVA AI -->
     <div class="project-card" data-motion>
-      <div class="proj-title">Phishing URL Detection Engine</div>
+      <div class="proj-result-badge">🏆 2nd Place — Hack Days 2026 · 8-Hour Sprint</div>
+      <div class="proj-header">
+        <div>
+          <div class="proj-title">ZeroVA AI - Zero Day Vulnerability Analysis</div>
+        </div>
+        <a class="proj-github-link" href="https://github.com/Laks04/ZeroVA-AI----Zero-Day-Vulnerability-Analysis" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+           ↗
+        </a>
+      </div>
+      <div class="proj-sub">CodeBERT · GNN · XGBoost · LightGBM · FastAPI · Docker · Hugging Face Spaces</div>
+      <p class="proj-desc">
+        A production-grade AI security platform that predicts zero-day vulnerabilities in source code before they're exploited. 
+        Built under an intense 8-hour hackathon constraint, ZeroVA combines a fine-tuned CodeBERT transformer for semantic code understanding, 
+        a Graph Neural Network to model inter-function dependencies, and a 4-model ensemble (XGBoost, LightGBM, CatBoost, Random Forest) 
+        trained on 8,000 CVE-annotated samples. The system is fully deployed via FastAPI on Hugging Face Spaces with Docker.
+      </p>
+      <div class="metrics-row">
+        <div class="metric-box">
+          <span class="metric-val">97.3%</span>
+          <span class="metric-lbl">ACCURACY</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-val">98.1%</span>
+          <span class="metric-lbl">AUC-ROC</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-val">8K</span>
+          <span class="metric-lbl">CVE SAMPLES</span>
+        </div>
+      </div>
+      <div class="stack-tags">
+        <span class="s-tag">Python</span>
+        <span class="s-tag">CodeBERT</span>
+        <span class="s-tag">GNN</span>
+        <span class="s-tag">XGBoost</span>
+        <span class="s-tag">LightGBM</span>
+        <span class="s-tag">CatBoost</span>
+        <span class="s-tag">FastAPI</span>
+        <span class="s-tag">Docker</span>
+        <span class="s-tag">Hugging Face</span>
+      </div>
+    </div>
+
+    <!-- Project 2: Quillox -->
+    <div class="project-card" data-motion="stagger-2">
+      <div class="proj-header">
+        <div>
+          <div class="proj-title">Quillox - AI Assistant With Tone Control</div>
+        </div>
+        <a class="proj-github-link" href="https://github.com/Laks04/Quillox---AI-Writing-Assistant-With-Tone-Control" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+           ↗
+        </a>
+      </div>
+      <div class="proj-sub">LLM (Meta LLaMA 3.3 70B) · Node.js · Express.js · Groq · NLP · Render</div>
+      <p class="proj-desc">
+        A full-stack AI writing assistant powered by Meta's LLaMA 3.3 70B, designed to generate contextually aware content 
+        across 8 distinct tones, 7 audience profiles, and 7 output formats — from technical documentation to persuasive copy. 
+        Quillox includes a production-grade AI safety layer with prompt injection detection and jailbreak filtering to prevent 
+        misuse, plus a daily token quota system to manage inference costs. Deployed on Render with GitHub auto-deploy for 
+        continuous delivery.
+      </p>
+      <div class="metrics-row">
+        <div class="metric-box">
+          <span class="metric-val">8</span>
+          <span class="metric-lbl">TONE MODES</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-val">7</span>
+          <span class="metric-lbl">AUDIENCES</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-val">7</span>
+          <span class="metric-lbl">OUTPUT FORMATS</span>
+        </div>
+      </div>
+      <div class="stack-tags">
+        <span class="s-tag">Node.js</span>
+        <span class="s-tag">Express.js</span>
+        <span class="s-tag">LLaMA 3.3 70B</span>
+        <span class="s-tag">Groq API</span>
+        <span class="s-tag">Prompt Engineering</span>
+        <span class="s-tag">NLP</span>
+        <span class="s-tag">Render</span>
+        <span class="s-tag">GitHub CI/CD</span>
+      </div>
+    </div>
+
+    <!-- Project 3: Phishing Detection -->
+    <div class="project-card" data-motion="stagger-3">
+      <div class="proj-header">
+        <div>
+          <div class="proj-title">Phishing URL Detection Engine</div>
+        </div>
+        <a class="proj-github-link" href="https://github.com/Laks04/Phishing-Detection-Using-Machine-Learning" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+           ↗
+        </a>
+      </div>
       <div class="proj-sub">Ensemble Stacking · 95,000+ URLs · Lexical + Statistical Feature Engineering</div>
       <p class="proj-desc">
         Architected a classification pipeline across 95,000+ URLs using lexical and statistical feature
@@ -1513,23 +1564,17 @@ footer p {
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     EXPERIENCE COMPONENT  [/components/Experience.tsx]
-     Tab order: WORK → HACKATHONS → EDUCATION → CERTIFICATIONS
-══════════════════════════════════════════ -->
+<!-- EXPERIENCE -->
 <section id="experience" class="alt-bg">
   <div class="container">
-
     <div class="sec-label" data-motion>
       <span class="sec-label-text">03  EXPERIENCE</span>
       <div class="sec-label-line"></div>
     </div>
-
     <h2 class="section-title t-xl" data-motion style="margin-bottom:36px">
       Where I've <span class="gt">shipped things</span>
     </h2>
 
-    <!-- TABS -->
     <div class="tabs-wrap" data-motion>
       <button class="tab-btn active" onclick="switchTab('work',   this)">WORK</button>
       <button class="tab-btn"        onclick="switchTab('hack',   this)">HACKATHONS</button>
@@ -1537,12 +1582,29 @@ footer p {
       <button class="tab-btn"        onclick="switchTab('certs',  this)">CERTIFICATIONS</button>
     </div>
 
-    <!-- ── WORK TAB ── -->
+    <!-- WORK TAB -->
     <div id="tab-work" class="tab-panel active">
       <div class="timeline">
         <div class="tl-line-outer"></div>
 
-        <!-- Role 1 -->
+        <!-- Role 1: Campus Ambassador -->
+        <div class="tl-wrapper" data-motion>
+          <div class="tl-meta">
+            <div class="tl-period">2026</div>
+            <div class="tl-loc">Bengaluru</div>
+            <div class="tl-type">Leadership</div>
+          </div>
+          <div class="tl-dot"></div>
+          <div class="exp-card-inner">
+            <div class="exp-role">Campus Ambassador</div>
+            <div class="exp-co">Women Who Master 2026 — Aspire For Her × Logitech </div>
+            <div class="exp-bullet"><span class="bullet-arr">▸</span>Selected as Campus Ambassador for Women Who Master 2026, India's largest women-only national hackathon, organised in collaboration with Aspire For Her, Logitech, and AICTE</div>
+            <div class="exp-bullet"><span class="bullet-arr">▸</span>Drove campus-wide awareness and registrations, representing the initiative across EPCET and mobilising student participation at scale</div>
+            <div class="exp-bullet"><span class="bullet-arr">▸</span>Acted as the on-ground bridge between event organisers and student community, coordinating outreach and providing first-point support for prospective participants</div>
+          </div>
+        </div>
+
+        <!-- Role 2: AI/ML Trainee -->
         <div class="tl-wrapper" data-motion>
           <div class="tl-meta">
             <div class="tl-period">Jan 2026 — Mar 2026</div>
@@ -1553,14 +1615,14 @@ footer p {
           <div class="exp-card-inner">
             <div class="exp-role">AI / ML Trainee</div>
             <div class="exp-co">ISM UNIV</div>
-            <div class="exp-bullet"><span class="bullet-arr">▸</span>Built and validated house price prediction model using Python, scikit-learn, and Pandas as part of guided applied projects</div>
+            <div class="exp-bullet"><span class="bullet-arr">▸</span>Built and validated a house price prediction model using Python, scikit-learn, and Pandas as part of guided applied projects</div>
             <div class="exp-bullet"><span class="bullet-arr">▸</span>Implemented complete data preprocessing workflows including missing-value handling, encoding, and normalization</div>
             <div class="exp-bullet"><span class="bullet-arr">▸</span>Completed end-to-end ML lifecycle: EDA → feature engineering → model training → evaluation → iteration</div>
             <div class="exp-bullet"><span class="bullet-arr">▸</span>Deepened applied understanding of the Developing AI Model using Python curriculum</div>
           </div>
         </div>
 
-        <!-- Role 2 -->
+        <!-- Role 3: ML Intern -->
         <div class="tl-wrapper" data-motion>
           <div class="tl-meta">
             <div class="tl-period">Oct 2024 — Dec 2024</div>
@@ -1571,20 +1633,48 @@ footer p {
           <div class="exp-card-inner">
             <div class="exp-role">Machine Learning Intern</div>
             <div class="exp-co">Placemantra</div>
-            <div class="exp-bullet"><span class="bullet-arr">▸</span>Designed a online fraud detection system on real-world payment transaction data with custom transaction-level feature engineering</div>
+            <div class="exp-bullet"><span class="bullet-arr">▸</span>Designed an online fraud detection system on real-world payment transaction data with custom transaction-level feature engineering</div>
             <div class="exp-bullet"><span class="bullet-arr">▸</span>Applied SMOTE oversampling to address severe class imbalance, improving minority-class recall by ~23% on test data</div>
             <div class="exp-bullet"><span class="bullet-arr">▸</span>Architected a structured, reproducible ML pipeline: preprocessing → stratified splitting → model training → evaluation</div>
             <div class="exp-bullet"><span class="bullet-arr">▸</span>Optimized classification performance using ROC-AUC and F1-score as primary evaluation metrics to minimize false positives</div>
           </div>
         </div>
+
       </div>
     </div>
 
-    <!-- ── HACKATHONS TAB ── -->
+    <!-- HACKATHONS TAB -->
     <div id="tab-hack" class="tab-panel">
       <div class="hack-grid">
 
         <div class="hack-card" data-motion>
+          <div class="hack-winner-badge">🏆 2nd Place</div>
+          <div class="hack-result">Hack Days 2026</div>
+          <div class="hack-event">100+ Teams · 8-Hour Sprint<br><span style="color:var(--mid);font-size:15px">1st Runner Up</span></div>
+          <div class="hack-meta">
+            <span class="hack-badge">8H SPRINT</span>
+            <span class="hack-badge">AI SECURITY</span>
+            <span class="hack-badge">WINNER</span>
+          </div>
+          <p style="font-family:var(--font-body);font-style:italic;font-size:15px;color:var(--mid);margin-top:12px;line-height:1.65">
+            Won 2nd place among 100+ competing teams by building ZeroVA AI — a production-grade security platform combining CodeBERT, a Graph Neural Network, and a 4-model ML ensemble that achieved 97.3% accuracy on CVE-annotated code samples.
+          </p>
+        </div>
+
+        <div class="hack-card" data-motion="stagger-2">
+          <div class="hack-result">USAII® Global AI Hackathon 2026</div>
+          <div class="hack-event">Global Virtual Hackathon<br><span style="color:var(--mid);font-size:15px">Ranked 286 of 424 Teams in 6000+ Participants</span></div>
+          <div class="hack-meta">
+            <span class="hack-badge">GLOBAL</span>
+            <span class="hack-badge">COLLEGE TRACK</span>
+            <span class="hack-badge">6000+ PARTICIPANTS</span>
+          </div>
+          <p style="font-family:var(--font-body);font-style:italic;font-size:15px;color:var(--mid);margin-top:12px;line-height:1.65">
+            Competed in the College Track of the USAII® Global AI Hackathon 2026, placing 286th out of 424 teams among over 6,000 global participants, demonstrating applied AI/ML skills on an international stage.
+          </p>
+        </div>
+
+        <div class="hack-card" data-motion="stagger-3">
           <div class="hack-result">Future of Work — 24H Hackathon</div>
           <div class="hack-event">TGB × Kroolo<br><span style="color:var(--mid);font-size:15px">Top 100</span></div>
           <div class="hack-meta">
@@ -1593,11 +1683,11 @@ footer p {
             <span class="hack-badge">SHORTLISTED</span>
           </div>
           <p style="font-family:var(--font-body);font-style:italic;font-size:15px;color:var(--mid);margin-top:12px;line-height:1.65">
-            Developed an AI-driven productivity solution using Generative AI concepts for workflow automation and task optimization. Shortlisted in the national top 100 competing against industry professionals.
+            Developed an AI-driven productivity solution using Generative AI for workflow automation and task optimisation. Shortlisted in the national top 100, competing against working industry professionals.
           </p>
         </div>
 
-        <div class="hack-card" data-motion="stagger-2">
+        <div class="hack-card" data-motion="stagger-4">
           <div class="hack-result">Replit Vibeathon</div>
           <div class="hack-event">Global Competition<br><span style="color:var(--mid);font-size:15px">Top 1,000</span></div>
           <div class="hack-meta">
@@ -1606,11 +1696,11 @@ footer p {
             <span class="hack-badge">ML</span>
           </div>
           <p style="font-family:var(--font-body);font-style:italic;font-size:15px;color:var(--mid);margin-top:12px;line-height:1.65">
-            Selected among 1000+ global participants. Built an AI-based mental health application leveraging machine learning for personalized user recommendations.
+            Selected among 1,000+ global participants. Built an AI-based mental health application leveraging machine learning for personalised user recommendations.
           </p>
         </div>
 
-        <div class="hack-card" data-motion="stagger-3">
+        <div class="hack-card" data-motion="stagger-5">
           <div class="hack-result">Vibe Hack 2.0</div>
           <div class="hack-event">Virtual Hackathon<br><span style="color:var(--mid);font-size:15px">Top 5,000</span></div>
           <div class="hack-meta">
@@ -1619,11 +1709,11 @@ footer p {
             <span class="hack-badge">AI/ML</span>
           </div>
           <p style="font-family:var(--font-body);font-style:italic;font-size:15px;color:var(--mid);margin-top:12px;line-height:1.65">
-            Advanced to Top 5000 out of 25,000+ teams globally. Developed a rapid AI/ML prototype under 8-hour constraints, focusing on real-time problem solving.
+            Advanced to Top 5,000 out of 25,000+ teams globally. Developed a rapid AI/ML prototype under 8-hour constraints, focusing on real-time problem solving.
           </p>
         </div>
 
-        <div class="hack-card" data-motion="stagger-4">
+        <div class="hack-card" data-motion="stagger-6">
           <div class="hack-result">Code Craze — VertechX 12.0</div>
           <div class="hack-event">National Coding Competition<br><span style="color:var(--mid);font-size:15px">Final Round</span></div>
           <div class="hack-meta">
@@ -1639,9 +1729,8 @@ footer p {
       </div>
     </div>
 
-    <!-- ── EDUCATION TAB ── -->
+    <!-- EDUCATION TAB -->
     <div id="tab-edu" class="tab-panel">
-
       <div class="edu-card" data-motion>
         <div>
           <div class="edu-degree">B.E. Computer Engineering — AI/ML Specialization</div>
@@ -1652,7 +1741,6 @@ footer p {
           <div class="edu-period">Sep 2023 — Expected 2027</div>
         </div>
       </div>
-
       <div class="edu-card" data-motion="stagger-2">
         <div>
           <div class="edu-degree">Pre-University — PCMC + Computer Science (French)</div>
@@ -1663,7 +1751,6 @@ footer p {
           <div class="edu-period">2021 — 2023</div>
         </div>
       </div>
-
       <div class="edu-card" data-motion="stagger-3">
         <div>
           <div class="edu-degree">SSLC — Class 10</div>
@@ -1674,13 +1761,11 @@ footer p {
           <div class="edu-period">2009 — 2021</div>
         </div>
       </div>
-
     </div>
 
-    <!-- ── CERTIFICATIONS TAB ── -->
+    <!-- CERTIFICATIONS TAB -->
     <div id="tab-certs" class="tab-panel">
       <div class="cert-grid">
-
         <div class="cert-item" data-motion>
           <div class="cert-bullet"></div>
           <div>
@@ -1688,7 +1773,6 @@ footer p {
             <div class="cert-issuer">Harvard University (edX)</div>
           </div>
         </div>
-
         <div class="cert-item" data-motion="stagger-2">
           <div class="cert-bullet"></div>
           <div>
@@ -1696,7 +1780,6 @@ footer p {
             <div class="cert-issuer">NPTEL</div>
           </div>
         </div>
-
         <div class="cert-item" data-motion="stagger-3">
           <div class="cert-bullet"></div>
           <div>
@@ -1704,7 +1787,6 @@ footer p {
             <div class="cert-issuer">Infosys Springboard</div>
           </div>
         </div>
-
         <div class="cert-item" data-motion="stagger-4">
           <div class="cert-bullet"></div>
           <div>
@@ -1712,7 +1794,6 @@ footer p {
             <div class="cert-issuer">ISM UNIV</div>
           </div>
         </div>
-
         <div class="cert-item" data-motion="stagger-5">
           <div class="cert-bullet"></div>
           <div>
@@ -1720,7 +1801,6 @@ footer p {
             <div class="cert-issuer">Cisco</div>
           </div>
         </div>
-
         <div class="cert-item" data-motion="stagger-6">
           <div class="cert-bullet"></div>
           <div>
@@ -1728,7 +1808,6 @@ footer p {
             <div class="cert-issuer">Infosys Springboard</div>
           </div>
         </div>
-
         <div class="cert-item" data-motion>
           <div class="cert-bullet"></div>
           <div>
@@ -1736,7 +1815,6 @@ footer p {
             <div class="cert-issuer">Scaler</div>
           </div>
         </div>
-
         <div class="cert-item" data-motion="stagger-2">
           <div class="cert-bullet"></div>
           <div>
@@ -1744,24 +1822,19 @@ footer p {
             <div class="cert-issuer">Infosys Springboard</div>
           </div>
         </div>
-
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     SKILLS COMPONENT  [/components/Skills.tsx]
-══════════════════════════════════════════ -->
+<!-- SKILLS -->
 <section id="skills">
   <div class="container">
-
     <div class="sec-label" data-motion>
       <span class="sec-label-text">04  SKILLS</span>
       <div class="sec-label-line"></div>
     </div>
-
     <h2 class="section-title t-xl" data-motion style="margin-bottom:12px">
       The <span class="gt">technical stack</span>
     </h2>
@@ -1770,7 +1843,6 @@ footer p {
     </p>
 
     <div class="skills-grid" id="skill-grid">
-
       <div class="skill-group" data-motion>
         <div class="sg-header"><span class="sg-icon">⬡</span><span class="sg-title">AI &amp; ML</span></div>
         <div class="skill-row"><div class="skill-meta"><span class="s-name">Supervised Learning</span><span class="s-pct">90%</span></div><div class="s-track"><div class="s-fill" data-w="90"></div></div></div>
@@ -1780,7 +1852,6 @@ footer p {
         <div class="skill-row"><div class="skill-meta"><span class="s-name">Model Evaluation (F1 / AUC)</span><span class="s-pct">87%</span></div><div class="s-track"><div class="s-fill" data-w="87"></div></div></div>
         <div class="skill-row"><div class="skill-meta"><span class="s-name">NLP / Text Classification</span><span class="s-pct">72%</span></div><div class="s-track"><div class="s-fill" data-w="72"></div></div></div>
       </div>
-
       <div class="skill-group" data-motion="stagger-2">
         <div class="sg-header"><span class="sg-icon">{ }</span><span class="sg-title">Languages &amp; Libraries</span></div>
         <div class="skill-row"><div class="skill-meta"><span class="s-name">Python</span><span class="s-pct">92%</span></div><div class="s-track"><div class="s-fill" data-w="92"></div></div></div>
@@ -1790,7 +1861,6 @@ footer p {
         <div class="skill-row"><div class="skill-meta"><span class="s-name">Java / C++</span><span class="s-pct">60%</span></div><div class="s-track"><div class="s-fill" data-w="60"></div></div></div>
         <div class="skill-row"><div class="skill-meta"><span class="s-name">JavaScript</span><span class="s-pct">58%</span></div><div class="s-track"><div class="s-fill" data-w="58"></div></div></div>
       </div>
-
       <div class="skill-group" data-motion="stagger-3">
         <div class="sg-header"><span class="sg-icon">◈</span><span class="sg-title">Data &amp; Visualization</span></div>
         <div class="skill-row"><div class="skill-meta"><span class="s-name">Pandas / NumPy</span><span class="s-pct">88%</span></div><div class="s-track"><div class="s-fill" data-w="88"></div></div></div>
@@ -1799,7 +1869,6 @@ footer p {
         <div class="skill-row"><div class="skill-meta"><span class="s-name">Power BI</span><span class="s-pct">65%</span></div><div class="s-track"><div class="s-fill" data-w="65"></div></div></div>
         <div class="skill-row"><div class="skill-meta"><span class="s-name">MySQL</span><span class="s-pct">72%</span></div><div class="s-track"><div class="s-fill" data-w="72"></div></div></div>
       </div>
-
       <div class="skill-group" data-motion="stagger-4">
         <div class="sg-header"><span class="sg-icon">⌘</span><span class="sg-title">Tools &amp; Workflow</span></div>
         <div class="skill-row"><div class="skill-meta"><span class="s-name">Git / GitHub</span><span class="s-pct">80%</span></div><div class="s-track"><div class="s-fill" data-w="80"></div></div></div>
@@ -1807,10 +1876,8 @@ footer p {
         <div class="skill-row"><div class="skill-meta"><span class="s-name">Data Pipeline Design</span><span class="s-pct">82%</span></div><div class="s-track"><div class="s-fill" data-w="82"></div></div></div>
         <div class="skill-row"><div class="skill-meta"><span class="s-name">Experiment Tracking</span><span class="s-pct">70%</span></div><div class="s-track"><div class="s-fill" data-w="70"></div></div></div>
       </div>
-
     </div>
 
-    <!-- Languages spoken -->
     <div data-motion style="margin-top:8px">
       <div style="font-family:var(--font-mono);font-size:10px;font-style:normal;color:var(--mid);letter-spacing:.18em;margin-bottom:14px">SPOKEN LANGUAGES</div>
       <div class="langs-row">
@@ -1824,17 +1891,13 @@ footer p {
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     CONTACT COMPONENT  [/components/Contact.tsx]
-══════════════════════════════════════════ -->
+<!-- CONTACT -->
 <section id="contact" class="alt-bg">
   <div class="container">
-
     <div class="sec-label" data-motion>
       <span class="sec-label-text">05  CONTACT</span>
       <div class="sec-label-line"></div>
     </div>
-
     <h2 class="section-title t-xl" data-motion style="margin-bottom:12px">
       Let's build something <span class="gt">intelligent</span>
     </h2>
@@ -1842,9 +1905,7 @@ footer p {
       Actively seeking AI/ML engineering roles, research collaborations, and internship opportunities.
       Whether you have a model to train or a pipeline to build — let's talk.
     </p>
-
     <div class="contact-grid">
-      <!-- Email card -->
       <div class="contact-card" data-motion>
         <div class="c-label">PRIMARY CONTACT</div>
         <div class="c-title">Email</div>
@@ -1856,8 +1917,6 @@ footer p {
           <button class="btn btn-outline" id="copy-btn" onclick="copyEmail()">COPY</button>
         </div>
       </div>
-
-      <!-- Links -->
       <div data-motion="stagger-2">
         <a class="link-row" href="https://www.linkedin.com/in/lakshitha-loganathan/" target="_blank" rel="noreferrer">
           <div class="link-icon-wrap" style="color:#6b9dce">in</div>
@@ -1874,53 +1933,48 @@ footer p {
             <div class="link-handle">+91 7795187927</div>
           </div>
         </a>
+
         <a class="link-row" href="https://github.com/Laks04" target="_blank" rel="noreferrer">
-          <div class="link-icon-wrap" style="color:#c89b6e">◉</div>
-          <div>
+          <div class="link-icon-wrap">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              width="22"
+              height="22">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </div>
+          <div class="link-content">
             <div class="link-platform">GITHUB</div>
             <div class="link-handle">Laks04</div>
           </div>
-          <span class="link-arr">↗</span>
+            <span class="link-arr">↗</span>
         </a>
-        </div>
+
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025 Lakshitha Loganathan · Bengaluru, India</p>
 </footer>
 
-<!-- ══════════════════════════════════════
-     JAVASCRIPT  (TypeScript-style, annotated)
-══════════════════════════════════════════ -->
 <script>
 "use strict";
 
-/* ── Nav: scrolled state + progress bar + active link ── */
-/** @type {HTMLElement} */
-var nav          = document.getElementById('nav');
-var progressBar  = document.getElementById('nav-progress');
-var hamburger    = document.getElementById('hamburger');
-var drawer       = document.getElementById('nav-drawer');
-
-// Section ids in order
-var sections = ['hero','about','projects','experience','skills','contact'];
+var nav         = document.getElementById('nav');
+var progressBar = document.getElementById('nav-progress');
+var hamburger   = document.getElementById('hamburger');
+var drawer      = document.getElementById('nav-drawer');
+var sections    = ['hero','about','projects','experience','skills','contact'];
 
 window.addEventListener('scroll', function () {
-  var scrollY  = window.scrollY;
-  var docH     = document.documentElement.scrollHeight - window.innerHeight;
-
-  // Scrolled class
+  var scrollY = window.scrollY;
+  var docH    = document.documentElement.scrollHeight - window.innerHeight;
   nav.classList.toggle('scrolled', scrollY > 32);
-
-  // Progress bar
   progressBar.style.width = (docH > 0 ? (scrollY / docH) * 100 : 0) + '%';
-
-  // Active link detection
   var current = 'hero';
   sections.forEach(function(id) {
     var el = document.getElementById(id);
@@ -1934,7 +1988,6 @@ window.addEventListener('scroll', function () {
   });
 }, { passive: true });
 
-/* ── Hamburger / drawer toggle ── */
 function toggleDrawer() {
   var isOpen = drawer.classList.toggle('open');
   hamburger.classList.toggle('open', isOpen);
@@ -1948,7 +2001,6 @@ function drawerGoto(id) {
   setTimeout(function() { gotoSection(id); }, 180);
 }
 
-// Close drawer on outside click
 document.addEventListener('click', function(e) {
   if (drawer.classList.contains('open') &&
       !drawer.contains(e.target) &&
@@ -1959,15 +2011,12 @@ document.addEventListener('click', function(e) {
   }
 });
 
-/* ── Smooth scroll helper ────────────────── */
-/** @param {string} id */
 function gotoSection(id) {
   var el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
-/* ── Typewriter (Framer: useMotionValue) ─── */
-var roles = ['AI/ML Engineer', 'Model Builder','Hackathon Competitor'];
+var roles = ['AI/ML Engineer', 'Model Builder', 'Hackathon Competitor', 'LLM Builder'];
 var ri = 0, tw = '', deleting = false;
 var twEl = document.getElementById('tw-text');
 function typeStep() {
@@ -1990,9 +2039,7 @@ function typeStep() {
 }
 typeStep();
 
-/* ── Neural canvas (particle network) ───── */
 (function () {
-  /** @type {HTMLCanvasElement} */
   var canvas = document.getElementById('hero-canvas');
   var ctx = canvas.getContext('2d');
   var nodes = [];
@@ -2058,7 +2105,6 @@ typeStep();
   }, { passive: true });
 })();
 
-/* ── Framer whileInView: IntersectionObserver ── */
 var motionEls = document.querySelectorAll('[data-motion]');
 var io = new IntersectionObserver(function (entries) {
   entries.forEach(function (e) {
@@ -2070,7 +2116,6 @@ var io = new IntersectionObserver(function (entries) {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 motionEls.forEach(function (el) { io.observe(el); });
 
-/* ── Skill bars: trigger on scroll into view ── */
 var skillsFired = false;
 var skillIO = new IntersectionObserver(function (entries) {
   if (entries[0].isIntersecting && !skillsFired) {
@@ -2083,25 +2128,19 @@ var skillIO = new IntersectionObserver(function (entries) {
 }, { threshold: 0.15 });
 skillIO.observe(document.getElementById('skill-grid'));
 
-/* ── Tab switcher (Framer AnimatePresence) ── */
-/** @param {string} name @param {HTMLElement} btn */
 function switchTab(name, btn) {
-  // deactivate all
   document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
   document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
-  // activate chosen
   btn.classList.add('active');
   var panel = document.getElementById('tab-' + name);
   if (panel) {
     panel.classList.add('active');
-    // trigger reveals inside newly shown panel
     panel.querySelectorAll('[data-motion]:not(.in)').forEach(function (el) {
       setTimeout(function () { el.classList.add('in'); }, 60);
     });
   }
 }
 
-/* ── Copy email ─────────────────────────── */
 function copyEmail() {
   var btn = document.getElementById('copy-btn');
   navigator.clipboard.writeText('lakshithaloganathan4@gmail.com').then(function () {
