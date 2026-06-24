@@ -134,30 +134,6 @@ Crimson Text 400 Italic — all body text, descriptions, section headings
 JetBrains Mono    — labels, badges, code blocks, nav links, stats
 ```
 
----
-
-## 📄 Sections Detail
-
-### Experience tabs (in order)
-
-| Tab | Content |
-|---|---|
-| **WORK** | AI/ML Trainee @ ISM UNIV (Jan–Mar 2026) · ML Intern @ Placemantra (Oct–Dec 2024) |
-| **HACKATHONS** | Top 100 TGB×Kroolo · Top 1K Replit Vibeathon · Top 5K VibHack 2.0 · Finals VertechX 12.0 |
-| **EDUCATION** | B.E. EPCET (GPA 8.8) · PU Jyoti Nivas (82.3%) · SSLC Air Force School (81.5%) |
-| **CERTIFICATIONS** | CS50x Harvard · NPTEL ML · Infosys ML · ISM UNIV AI · Cyber Security · DSA · JS |
-
-### Skill categories
-
-| Category | Top Skills |
-|---|---|
-| ML & AI | Supervised Learning · Random Forest · Feature Engineering · SMOTE · F1/AUC |
-| Languages | Python · scikit-learn · Pandas · TensorFlow · PyTorch · Hugging Face |
-| Data & Viz | Matplotlib · Seaborn · Tableau · Power BI · MySQL |
-| Tools | Git · Jupyter · VS Code · Pipeline Design |
-
----
-
 ## 📬 Contact
 
 | Channel | Detail |
