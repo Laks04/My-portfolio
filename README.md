@@ -164,12 +164,6 @@ All content lives directly in `index.html` — no CMS, no config files, no API c
 
 ---
 
-## 📃 License
-
-MIT — free to fork, adapt, and use as a template. Attribution appreciated but not required.
-
----
-
 <div align="center">
 
 Made with intention · Bengaluru, India · 2025
